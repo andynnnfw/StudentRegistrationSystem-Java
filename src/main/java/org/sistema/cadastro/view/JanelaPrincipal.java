@@ -1,6 +1,6 @@
 package org.sistema.cadastro.view;
 
-import org.sistema.cadastro.dao.AlunoDAO;
+import org.sistema.cadastro.dao.AlunoDao;
 import org.sistema.cadastro.model.Aluno;
 
 import javax.swing.*;
@@ -189,7 +189,7 @@ public class JanelaPrincipal extends JFrame {
 
         aluno.setCidade(campoCidade.getText());
 
-        new AlunoDAO().salvar(aluno);
+        new AlunoDao().salvar(aluno);
 
         carregarTabela();
 
@@ -202,7 +202,7 @@ public class JanelaPrincipal extends JFrame {
         modeloTabela.setRowCount(0);
 
         List<Aluno> lista =
-                new AlunoDAO().listar();
+                new AlunoDao().listar();
 
         for (Aluno a : lista) {
             modeloTabela.addRow(new Object[]{a.getId(), a.getNome(), a.getEmail(), a.getCurso(), a.getCidade()});
@@ -240,7 +240,7 @@ public class JanelaPrincipal extends JFrame {
 
         aluno.setCidade((String) tabela.getValueAt(linha, 4));
 
-        new AlunoDAO().atualizar(aluno);
+        new AlunoDao().atualizar(aluno);
 
         carregarTabela();
 
@@ -262,7 +262,7 @@ public class JanelaPrincipal extends JFrame {
 
         int id = (int) tabela.getValueAt(linha, 0);
 
-        new AlunoDAO().excluir(id);
+        new AlunoDao().excluir(id);
 
         carregarTabela();
 

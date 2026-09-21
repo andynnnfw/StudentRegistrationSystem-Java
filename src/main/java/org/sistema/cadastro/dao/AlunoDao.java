@@ -6,10 +6,10 @@ import org.sistema.cadastro.model.Aluno;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class AlunoDAO {
+public class AlunoDao {
     private Connection conn;
 
-    public AlunoDAO() {
+    public AlunoDao() {
         conn = Conexao.getConnection();
     }
 
